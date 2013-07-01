@@ -20,11 +20,12 @@
 
           <h1 id="project_title">Notebook</h1>
           <h2 id="project_tagline"></h2>
-
+<!--
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/nmische/notebook/zipball/master">Download this project as a .zip file</a>
               <a class="tar_download_link" href="https://github.com/nmische/notebook/tarball/master">Download this project as a tar.gz file</a>
             </section>
+-->
         </header>
     </div>
 
@@ -39,6 +40,8 @@
 <a name="the-architecture" class="anchor" href="#the-architecture"><span class="octicon octicon-link"></span></a>The Architecture</h2>
 
 <p>Below is a diagram of the proposed architecture, which is in part based on the <a href="http://aws.amazon.com/elasticbeanstalk/">Amazon Elastic Beanstalk</a> PaaS offering.</p>
+
+<img src="diagram.png"/>
 
 <ol>
 <li>Users DNS requests are served by <a href="http://aws.amazon.com/route53/"><strong>Amazon Route 53</strong></a>, a highly available  DNS service. In this case Route 53 is provisioned as part of the Elastic Beanstalk application.</li>
