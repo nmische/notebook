@@ -97,19 +97,19 @@
 <h4>
 <a name="amazon-cloudsearch" class="anchor" href="#amazon-cloudsearch"><span class="octicon octicon-link"></span></a>Amazon CloudSearch</h4>
 
-<p>CloudSearch is a completely managed service. As such Amazon CloudWatch does not provide metrics on the service and any failures in the service would have to be handled by Amazon. Depending on how critical search is considered for the notebook application, this may or may not be acceptable. If using CloudSearch is unacceptable, search could be handled by Apache Solr or ElasticSearch EC2 instances. If search was deemed critical functionality the Elastic Beanstalk application check URL could be configured to return a failure should the search service be unavailable, thus alerting on an outage. Search monitoring could also be built into the application such that the application sends notificaitons on search failure. This form of monitoring would be particularly useful if search was considered a non-critical feature of the application.</p>
+<p>CloudSearch is a completely managed service. As such Amazon CloudWatch does not provide metrics on the service and any failures in the service would have to be handled by Amazon. Depending on how critical search is considered for the notebook application, this may or may not be acceptable. If using CloudSearch is unacceptable, search could be handled by Apache Solr or ElasticSearch EC2 instances. If search was deemed critical functionality the Elastic Beanstalk application check URL could be configured to return a failure should the search service be unavailable, thus alerting on an outage. Search monitoring could also be built into the application such that the application sends notifications on search failure. This form of monitoring would be particularly useful if search was considered a non-critical feature of the application.</p>
 
 <h3>
 <a name="ddos-attack" class="anchor" href="#ddos-attack"><span class="octicon octicon-link"></span></a>DDoS Attack</h3>
 
-<p>Detecting a DDoS attack against resources behind an Elastic Load Balancer can be challenging becasue large increases in load over a short time, such as those seen during an attack, can cause an ELB to fail. This should be detected via Elastic Beanstalk's applicaiton health check but external monitoring would once again be recommended. Should a DDoS attack be detected I would recommend working with a DDoS mitigation service such as <a href="www.verisigninc.com/DDoS">Verisign</a>. Research should be done to select a service provider and test their mitigation process, which usually involves routing traffic through the provider in some manner for filtering, before an actual attack is underway. </p>
+<p>Detecting a DDoS attack against resources behind an Elastic Load Balancer can be challenging because large increases in load over a short time, such as those seen during an attack, can cause an ELB to fail. This should be detected via Elastic Beanstalk's application health check but external monitoring would once again be recommended. Should a DDoS attack be detected I would recommend working with a DDoS mitigation service such as <a href="www.verisigninc.com/DDoS">Verisign</a>. Research should be done to select a service provider and test their mitigation process, which usually involves routing traffic through the provider in some manner for filtering, before an actual attack is underway. </p>
 
 <h3>
 <a name="scaling" class="anchor" href="#scaling"><span class="octicon octicon-link"></span></a>Scaling</h3>
 
 <p>One of the big advantages to the Amazon Web Services platform is its elasticity and scalability. At the load balancing layer the Elastic Load Balancer will automatically scale load balancing resources. At the web application layer the Auto Scaling group will scale the web application servers horizontally to support increased load. As a managed service Amazon CloudSearch will automatically scale to support the increase in data and query volume.</p>
 
-<p>The real challenge would likely be at the database layer. A first step may be to add caching layers via the Amazon ElastiCache service to offload some of the database workload. One major advantage to the Amazon RDS platform is “push-button scaling” which allows you to provision additional compute, memory and storage within a mintues. RDS also offers provisioned IOPS for increased performance, which allows for up to 3TB storage and 30,000 IOPS per database instance. Should the application outgrow a single database, the application may need to be refactored to shard database operation across multiple database instances.</p>
+<p>The real challenge would likely be at the database layer. A first step may be to add caching layers via the Amazon ElastiCache service to offload some of the database workload. One major advantage to the Amazon RDS platform is “push-button scaling” which allows you to provision additional compute, memory and storage within a few minutes. RDS also offers provisioned IOPS for increased performance, which allows for up to 3TB storage and 30,000 IOPS per database instance. Should the application outgrow a single database, the application may need to be refactored to shard database operation across multiple database instances.</p>
 
 <h3>
 <a name="beta-services-another-scary-thing" class="anchor" href="#beta-services-another-scary-thing"><span class="octicon octicon-link"></span></a>Beta Services (Another Scary Thing)</h3>
@@ -121,7 +121,7 @@
 <h2>
 <a name="conclusion" class="anchor" href="#conclusion"><span class="octicon octicon-link"></span></a>Conclusion</h2>
 
-<p>There are certainly several ways to architect this application but given the elasticty, scalability, and maturity of the AWS platform I think it is an excellent option for web applications such as the notebook application.</p>
+<p>There are certainly several ways to architect this application but given the elasticity, scalability, and maturity of the AWS platform I think it is an excellent option for web applications such as the notebook application.</p>
       </section>
     </div>
 
